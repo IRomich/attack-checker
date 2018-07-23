@@ -14,7 +14,7 @@ $end = 0;
 $is_first = True;
 $training_set = [];
 
-$data_file = file_get_contents("file.log");
+$data_file = file_get_contents("../data/log files/file.log");
 preg_match_all("/(.*)\s-\s\S+\s+\[(\d{1,2}\/.*\/\d{4}:\d{2}:\d{2}:\d{2}).*\]\s\".*\"\s(\d{3})\s.*\"(\S*)\"\s\"(.*)\"/Ui", $data_file, $tmp);
 
 $data = [];
@@ -75,6 +75,6 @@ foreach ($data as $ip => $rows) {
 	array_push($vectors, ["ip" => $ip, "data" => $vector]);
 };
 
-file_put_contents("dataset", json_encode($vectors));
+file_put_contents("../data/sets/dataset", json_encode($vectors));
 
 ?>
